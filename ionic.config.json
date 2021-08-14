@@ -1,0 +1,7 @@
+{
+  "name": "SpinFood",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
