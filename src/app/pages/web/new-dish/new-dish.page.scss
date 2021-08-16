@@ -1,0 +1,51 @@
+.new-dish {
+    float: left;
+    height: 50%;
+    width: 400px;
+}
+
+.days {
+    float: left;
+    width: 7%;
+    height: 100%;
+    background-color: #1CBA5B;
+}
+
+.day {
+    width: 100%;
+    height: (100%/6);
+    padding: 20px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-dish {
+    height: 100%;
+    width: 93%;
+    overflow-y: auto;     
+}
+
+.image-upload {
+    border-radius:50%; 
+    background: #E9EAEB;
+    text-align: center; 
+    height: 250px; 
+    width: 250px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bolder;
+    margin: 0px auto;
+    // display:inline-block;
+    // line-height:250px;
+    outline: none;
+}
+
+ion-icon.image-upload {
+    font-size: 220px;
+    cursor: pointer;
+    margin: 50px 150px;
+}

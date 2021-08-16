@@ -1,0 +1,10 @@
+<ion-card [ngClass]="{'dish': true, 'active': active ? true : false}">
+  <img class="dish-image" src="assets/jela/jelo2.png" alt="">
+  <div style="text-align: left;">
+    <h4 style="color: #24AE5D;font-weight: bolder">{{dish.name}}</h4>
+    <p style="font-size: smaller;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae et debitis iste
+      fugiat ab sapiente in.</p>
+  </div>
+  <ion-button *ngIf="active" class="ion-float-right" (click)="removeFromMenu($event)">REMOVE FROM MENU</ion-button>
+  <ion-button *ngIf="!active" class="ion-float-right" (click)="addToMenu()">ADD TO MENU</ion-button>
+</ion-card>

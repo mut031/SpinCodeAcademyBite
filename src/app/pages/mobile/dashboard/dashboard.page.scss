@@ -1,0 +1,25 @@
+ion-header {
+  padding: 20px;
+  padding-bottom: 0;
+
+  ion-title {
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+ion-card {
+  background-size: cover;
+  height: 150px;
+  margin: 10px 20px;
+  padding: 0;
+
+  ion-text {
+    color: white;
+  }
+}
+
+h1 {
+    text-align: center;
+    font-weight: bolder;
+}

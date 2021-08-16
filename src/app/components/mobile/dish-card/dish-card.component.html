@@ -1,0 +1,17 @@
+<ion-card [ngClass]="{'dishSelected': dishSelected}" [button]='button'>
+  <ion-row>
+    <ion-col size='3'>
+      <img src='assets/jela/jelo{{randomImg}}.png'>
+    </ion-col>
+    <ion-col>
+      <ion-card-content>
+        <h2>
+          <ion-text color='primary'>{{name}}</ion-text>
+        </h2>
+        <p>Keep close to Nature's heart... and break clear away...</p>
+        <!-- <p>{{description}}</p> -->
+      </ion-card-content>
+    </ion-col>
+  </ion-row>
+  <ion-text *ngIf='orderDay' class='day ion-text-center' color='primary'>{{orderDay.toUpperCase()}}</ion-text>
+</ion-card>

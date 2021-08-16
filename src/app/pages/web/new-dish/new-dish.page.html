@@ -1,0 +1,48 @@
+<ion-content>
+  <div class="days">
+    <div class="day">
+      <img class="logo" src="assets/logobijeli.png" alt="">
+    </div>
+  </div>
+  <div class="new-dish">
+    <ion-grid class="new-dish">
+      <ion-row style="margin: 60px 0px">
+        <ion-col style="text-align: center;">
+          <h2>ADD NEW MEAL</h2>
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="padding: 0px 125px">
+          <ion-list lines="full">
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input [(ngModel)]="dish.name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Description</ion-label>
+              <ion-textarea [(ngModel)]="dish.description"></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <ion-item *ngFor="let extra of extras">
+            <ion-label>{{extra.name}}</ion-label>
+            <ion-checkbox slot="end" [(ngModel)]="extra.checked"></ion-checkbox>
+          </ion-item>
+          <ion-toolbar style="padding-top: 30px">
+            <ion-button style="margin: 0px 10px" slot="end" (click)="addNewDish()" color="primary" [disabled]="this.dish.name == '' || this.dish.description == ''">SAVE</ion-button>
+            <ion-button style="margin: 0px 10px" slot="end" (click)="cancelNewDish()" fill="outline">CLEAR</ion-button>
+          </ion-toolbar>
+        </ion-col>
+        <ion-col class="ion-align-self-center">
+          <input hidden type="file" accept="image/*" capture="camera" (change)="onFileSelected($event)"
+            id="fileInput" />
+          <label for="fileInput" icon-only ion-button>
+            <div class="image-upload">ADD PHOTO</div>
+          </label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

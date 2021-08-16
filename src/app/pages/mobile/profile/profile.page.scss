@@ -1,0 +1,13 @@
+ion-text, ion-title {
+  font-weight: bold;
+}
+
+ion-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 40px auto;
+
+  ion-img {
+    border: 1px solid var(--ion-color-primary);
+  }
+}

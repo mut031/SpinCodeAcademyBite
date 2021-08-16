@@ -1,0 +1,35 @@
+.days {
+    float: left;
+    width: 7%;
+    height: 100%;
+    background-color: #1CBA5B;
+}
+
+.day {
+    width: 100%;
+    height: (100%/6);
+    padding: 20px;
+    float: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.active-day {
+    color:  #1CBA5B;
+    background-color: white;
+}
+
+h1 {
+    font-weight: bolder;
+    margin: 100px;
+}
+
+.menu {
+    height: 100%;
+    overflow-y: auto;
+}

@@ -1,0 +1,19 @@
+.dish {    
+    float: left;
+    // margin: 10px;
+     padding: 10px;
+    border-radius: 1%;
+    background-color: #E9EAEB;
+    width: 94%; 
+    margin: inherit auto;
+}
+
+.active {
+    background-color: white;
+}
+
+.dish-image {
+    width: 150px;
+    height: 150px;
+    float: left;
+}

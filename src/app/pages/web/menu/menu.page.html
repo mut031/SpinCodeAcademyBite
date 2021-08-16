@@ -1,0 +1,82 @@
+<ion-content>
+  <div class="days">
+    <div class="day">
+      <img class="logo" src="assets/logobijeli.png" alt="">
+    </div>
+    <div [ngClass]="{'day': true, 'active-day': day == currentDay}" *ngFor="let day of days" color="primary"
+      (click)="changeDay(day)">
+      <span>
+        <h2>{{daysNames[day-1]}}</h2>
+      </span>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="all-dishes" style="padding: 50px 60px 50px 70px;">
+      <div style="text-align: center; padding-top: 10px; height: 20%;">
+        <h4 style="color: #09B44D;font-weight: bold;">Non active meals</h4>
+        <p>Click on the meal card to add it to your day menu</p>
+      </div>
+      <div style="overflow-y: scroll; height: 70%;  scrollbar-width: thin; width: 100%;">
+
+        <app-dish *ngFor="let dish of allDishes" [dish]="dish"></app-dish>
+
+      </div>
+      <ion-button expand="block" [routerLink]="['/web/new-dish']" class="add-new-dish primary">Add new dish</ion-button>
+    </div>
+    <div class="all-dishes" style="padding: 50px 70px 50px 60px;">
+      <div style="text-align: center; padding-top: 10px; height: 20%;">
+        <h4 style="color: #09B44D;font-weight: bold;">Current meals</h4>
+        <p>Click on the meal card to add it to your day menu</p>
+      </div>
+      <div style="overflow-y: scroll; height: 80%;  scrollbar-width: thin; width: 100%;">
+
+        <app-dish *ngFor="let dish of dayMenu" [dish]="dish" [active]="true"></app-dish>
+
+      </div>
+    </div>
+    <!-- <div class="menu-dishes" style="padding: 5 30px; background-color: antiquewhite;">
+      <div style="text-align: center; padding-top: 10px; height: 30%;">
+        <ion-toolbar center style="padding: 45px 0px;">
+          <ion-searchbar style=" width: 500px;" showCancelButton="always"></ion-searchbar>
+        </ion-toolbar>
+        <h4 style="color: #09B44D;font-weight: bold;">Current meals</h4>
+        <p>Click on the meal card to add it to your day menu</p>
+      </div>
+      <div style="overflow-y: scroll; height: 70%;  scrollbar-width: thin;">
+        <div style="margin: 0 95px;" *ngFor="let dish of allDishes">
+          <app-dish [dish]="dish"></app-dish>
+        </div>
+      </div>
+    </div> -->
+    <!-- <ion-grid>
+      <ion-row>       
+        <ion-col style="background-color:#afd6bf">
+          <div style="text-align: center; padding-top: 30px;">
+            <h3 style="font-weight: bolder; padding: 45px 0px;">DAY MEALS</h3>
+            <h4 style="color: #09B44D;font-weight: bold;">Non active meals</h4>
+            <p>Click on the meal card to add it to your day menu</p>
+          </div>
+          <div style="height: 70%;  scrollbar-width: thin;">
+            <span *ngFor="let dish of allDishes">
+              <app-dish [dish]="dish"></app-dish>
+            </span>
+          </div>
+        </ion-col>
+        <ion-col style="background-color:#c4cdf7;">
+          <div style="text-align: center; padding-top: 30px">
+            <ion-toolbar center style="padding: 45px 0px;">
+              <ion-searchbar style=" width: 500px;" showCancelButton="always"></ion-searchbar>
+            </ion-toolbar>
+            <h4 style="color: #09B44D;font-weight: bold;">Current meals</h4>
+            <p>Click on the meal card to add it to your day menu</p>
+          </div>
+          <div style="">
+            <span *ngFor="let dish of allDishes">
+              <app-dish [dish]="dish"></app-dish>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+  </div>
+</ion-content>
