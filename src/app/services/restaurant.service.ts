@@ -173,7 +173,7 @@ export class RestaurantService {
 
   // dohvaca sve restorane: id, ime, slika, ocjena, description
   initRestaurantsForCustomerUser() {
-    this.restaurant.id = this.userService.getUsersRestaurantId();
+    // this.restaurant.id = this.userService.getUsersRestaurantId();
     return this.apiService.callApi('https://jupitermobiletest.jupiter-software.com:30081/jupitermobilex/gen/api/food',
       {
         db: 'Food',

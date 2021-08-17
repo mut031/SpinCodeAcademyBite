@@ -18,7 +18,7 @@ export class RestaurantResolverService implements Resolve<boolean>  {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<any> {
-    if (this.userSerice.isCompany() !== 2) {
+    if (!this.userSerice.isMobile) {
       return this.restaurantService.initRestaurantForCompanyUser();
     }
     else {

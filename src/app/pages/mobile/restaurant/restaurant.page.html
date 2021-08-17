@@ -1,0 +1,29 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-back-button color='primary' icon='chevron-back'></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{restaurant?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-row *ngIf='days'>
+  <ion-col size='2.2' *ngFor='let day of [1,2,3,4,5]'>
+    <ion-button class='dayButton' [fill]='activeDayId === day ? "solid" : "outline"' (click)='showForDay(day)'>
+      {{days[day-1]}}
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+<ion-content>
+  <app-dish-card *ngFor='let dish of dishesForDay' [name]='dish.name' (click)='addToCart(dish)' [button]='true'
+    [dishSelected]='dish.inCart'>
+  </app-dish-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [disabled]='!orders?.length' (click)='showCart()'>
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+    <ion-badge>{{orders?.length || 0}}</ion-badge>
+  </ion-fab>
+</ion-content>

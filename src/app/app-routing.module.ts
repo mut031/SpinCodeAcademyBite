@@ -44,7 +44,11 @@ const routes: Routes = [
       {
         path: 'tabs',
         loadChildren: () => import('./pages/mobile/tabs/tabs.module').then(m => m.TabsPageModule)
-      }
+      },
+      {
+        path: 'restaurant',
+        loadChildren: () => import('./pages/mobile/restaurant/restaurant.module').then(m => m.RestaurantPageModule)
+      },
     ],
     resolve: {
       restaurant: RestaurantResolverService
