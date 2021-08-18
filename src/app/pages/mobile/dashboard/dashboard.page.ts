@@ -18,10 +18,6 @@ export class DashboardPage implements OnInit {
       if (value.length) {
         this.allRestaurants = [...value];
         this.filteredRestaurants = [...this.allRestaurants];
-        this.filteredRestaurants[0].name = 'Novi restoran';
-        console.log(this.allRestaurants[0].name);
-        console.log('asd',this.filteredRestaurants[0].name);
-
         this.setImages();
       }
     });

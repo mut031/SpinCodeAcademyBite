@@ -19,7 +19,6 @@ export class AppComponent {
     private storage: StorageService,
     private userService: UserService,
     private router: Router,
-    private cartService: CartService,
     private platform: Platform
   ) {
     this.initializeApp();
@@ -36,8 +35,6 @@ export class AppComponent {
         }
       }
     });
-    this.cartService.orders.subscribe(orders => this.cartCount = orders?.length || 0);
-    this.storage.getData('cart').then(orders => this.cartService.orders.next(JSON.parse(orders.value) || []));
   }
 
   async openMenu() {
