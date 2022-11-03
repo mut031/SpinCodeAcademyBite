@@ -4,4 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <app-dish-card *ngFor='let order of orders' [name]='order.name' [orderDay]='days[order.day - 1]'></app-dish-card>
+</ion-content>
+<ion-button expand='block' *ngIf='orders.length' (click)='finishOrder()'>Finish order</ion-button>

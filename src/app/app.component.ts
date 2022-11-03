@@ -19,7 +19,8 @@ export class AppComponent {
     private storage: StorageService,
     private userService: UserService,
     private router: Router,
-    private platform: Platform
+    private platform: Platform,
+    private cartService:CartService
   ) {
     this.initializeApp();
   }
@@ -31,6 +32,7 @@ export class AppComponent {
       this.userService.user = JSON.parse(user.value);
       if (user.value) {
         if (this.isMobile) {
+          this.storage.getData('cart').then(orders => this.cartService.orders.next(JSON.parse(orders.value) || []))
           this.router.navigate(['mobile/tabs/dashboard'], { replaceUrl: true });
         }
       }

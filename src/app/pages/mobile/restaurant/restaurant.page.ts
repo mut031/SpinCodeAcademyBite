@@ -31,6 +31,9 @@ export class RestaurantPage implements OnInit {
     private route: ActivatedRoute,
     private restaurantService: RestaurantService,
     public actionSheetController: ActionSheetController,
+    private cartService: CartService,
+    private modalCtrl: ModalController,
+
   ) { }
 
   ngOnInit() {
@@ -38,14 +41,37 @@ export class RestaurantPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.restaurant = this.restaurantService.getRestaurantById(params.id);
+        this.orders = this.cartService.orders.getValue();
         this.showForDay();
+        this.cartService.orders.subscribe(orders => this.orders = orders);
       }
     });
   }
 
   showForDay(dayId?: number) {
     this.activeDayId = dayId || this.activeDayId;
-    this.dishesForDay = this.restaurant.menus[this.activeDayId - 1];
+    this.dishesForDay = this.restaurant.menus[this.activeDayId - 1].map(dish => {
+      dish.inCart = !!this.orders.find(o => o.day === dish.day && o.dishId === dish.dishId);
+      return dish;
+    });
   }
 
+  addToCart(dish: MenuDish) {
+    dish.inCart = this.cartService.toggleDishInCart(dish);
+  }
+
+
+  async showCart() {
+    const modal = await this.modalCtrl.create({
+      component: CartPage,
+      componentProps: {
+        modalPage: true
+      }
+    });
+    await modal.present();
+    await modal.onWillDismiss();
+    if (!this.orders.length) {
+      this.showForDay();
+    }
+  }
 }
